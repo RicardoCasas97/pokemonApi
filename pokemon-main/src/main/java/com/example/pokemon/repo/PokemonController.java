@@ -1,6 +1,6 @@
-package com.example.pokemon.controllers;
+package com.example.pokemon.repo;
 
-import com.example.pokemon.service.PokemonService;
+import com.example.pokemon.service.PokemonAPI;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(path = "pokemon")
-public class Pokemon {
+public class PokemonController {
 	
-	PokemonService pokemonServicez;
+	PokemonAPI pokemonAPI;
 	
  @Autowired
-	public Pokemon(PokemonService pokemonServices){
-		this.pokemonServicez = pokemonServices;
+	public PokemonController(PokemonAPI pokemonAPI){
+		this.pokemonAPI = pokemonAPI;
 	}
 	
 /*
@@ -29,41 +29,41 @@ public class Pokemon {
 	
 	@GetMapping(value="/{nombrePokemon}")
 	public String AllEndPoint(@PathVariable("nombrePokemon") String pokemon) {
-		return pokemonServicez.imprimirPokemon(pokemon);
+		return pokemonAPI.imprimirPokemon(pokemon);
 	}
 	
 	
 	
 	@GetMapping(value="/{nombrePokemon}/abilities")
 	public String obtenerAbilities(@PathVariable("nombrePokemon") String pokemon) {
-		return pokemonServicez.obtenerAbilities(pokemon);
+		return pokemonAPI.obtenerAbilities(pokemon);
 	}
 	
 
 	@GetMapping(value="/{nombrePokemon}/base_experience")
 	public String obtenerBase_experience(@PathVariable("nombrePokemon") String pokemon) {
-		return pokemonServicez.obtenerBaseExperience(pokemon);
+		return pokemonAPI.obtenerBaseExperience(pokemon);
 	}
 	
 	@GetMapping(value="/{nombrePokemon}/held_items")
 	public String obtenerHeldItems(@PathVariable("nombrePokemon") String pokemon) {
-		return pokemonServicez.obtenerHeld_items(pokemon);
+		return pokemonAPI.obtenerHeld_items(pokemon);
 	}
 	
 	@GetMapping(value="/{nombrePokemon}/id")
 	public String obtenerID(@PathVariable("nombrePokemon") String pokemon) {
-		return pokemonServicez.obtenerID(pokemon);
+		return pokemonAPI.obtenerID(pokemon);
 	}
 	
 	@GetMapping(value="/{nombrePokemon}/name")
 	public String obtenerName(@PathVariable("nombrePokemon") String pokemon) {
-		return pokemonServicez.obtenerName(pokemon);
+		return pokemonAPI.obtenerName(pokemon);
 	}
 	
 	
 	@GetMapping(value="/{nombrePokemon}/location_area_encounters")
-	public String obtenerLocationAreaeEncounters(@PathVariable("nombrePokemon") String pokemon) {
-		return pokemonServicez.obtenerLocationAreaeEncounters(pokemon);
+	public String obtenerLocationAreaEncounters(@PathVariable("nombrePokemon") String pokemon) {
+		return pokemonAPI.obtenerLocationAreaEncounters(pokemon);
 	}
 	
 

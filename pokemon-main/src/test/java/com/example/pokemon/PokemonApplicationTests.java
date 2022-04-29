@@ -1,14 +1,15 @@
 package com.example.pokemon;
 
 import org.junit.jupiter.api.Test;
-import com.example.pokemon.controllers.Pokemon;
+
 import com.example.pokemon.PokemonApplication;
-import com.example.pokemon.service.PokemonService;
+import com.example.pokemon.repo.PokemonController;
+import com.example.pokemon.service.PokemonAPI;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class PokemonApplicationTests {
-	Pokemon pokemon = new Pokemon(new PokemonService());
+	PokemonController pokemon = new PokemonController(new PokemonAPI());
 
 	@Test
 	void contextLoads() {
